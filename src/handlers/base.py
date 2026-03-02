@@ -31,7 +31,7 @@ async def chat_handler(message: types.Message) -> None:
         try:
             messages = [
                 {"role": "system", "content": PROMPT},
-                {"role": "user", "content": f"Тебе вопрос: '{message.text}'. Дай на него ответ согласно правилам." or ""}
+                {"role": "user", "content": f"@{message.from_user.username}: '{message.text}'." or ""}
             ]
             
             response = await openai_client.get_completion(messages)
